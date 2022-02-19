@@ -28,5 +28,13 @@ const numbers = [1, 2, 3, 4];
 const copyNumbers = [...numbers];
 // console.log(copyNumbers);
 numbers.push(5);
-console.log(numbers);
-console.log(copyNumbers);
+// console.log(numbers);
+// console.log(copyNumbers);
+
+// default parametor
+function countTwoNumber(num1, num2 = 0) {
+	return num1 + num2;
+}
+
+// console.log(countTwoNumber(5, 5));
+// console.log(countTwoNumber(5));
