@@ -1,4 +1,4 @@
-const user = {
+/* const user = {
 	name: "Mohammad Tasib",
 	age: 19,
 	study: {
@@ -15,3 +15,4 @@ console.log("stringiry user - ", userStringify);
 const userParse = JSON.parse(userStringify);
 
 console.log("user parse - ", userParse);
+ */
