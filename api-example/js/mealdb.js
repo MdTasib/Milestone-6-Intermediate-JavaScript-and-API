@@ -1,16 +1,22 @@
-document.getElementById("search-btn").addEventListener("click", function () {
+document.getElementById("search-btn").addEventListener("click", async () => {
 	const searchFiled = document.getElementById("search-field");
 	const searchValue = searchFiled.value;
 	searchFiled.value = "";
 
 	const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchValue}`;
-	fetch(url)
-		.then(response => response.json())
-		.then(data => displayFood(data.meals));
+
+	const res = await fetch(url);
+	const data = await res.json();
+	displayFood(data.meals);
+
+	// fetch(url)
+	// 	.then(response => response.json())
+	// 	.then(data => displayFood(data.meals));
 });
 
-function displayFood(foods) {
+const displayFood = foods => {
 	const searchResult = document.getElementById("search-result");
+	searchResult.textContent = "";
 	foods.forEach(food => {
 		const div = document.createElement("div");
 		div.classList.add("col");
@@ -25,16 +31,23 @@ function displayFood(foods) {
     `;
 		searchResult.appendChild(div);
 	});
-}
+};
 
-function loadDetail(mealId) {
-	fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`)
-		.then(response => response.json())
-		.then(data => displayDetail(data.meals[0]));
-}
+const loadDetail = async mealId => {
+	const res = await fetch(
+		`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`
+	);
+	const data = await res.json();
+	displayDetail(data.meals[0]);
+
+	// fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`)
+	// 	.then(response => response.json())
+	// 	.then(data => displayDetail(data.meals[0]));
+};
 
 function displayDetail(meal) {
 	const mealDetail = document.getElementById("meal-details");
+	mealDetail.textContent = "";
 	const div = document.createElement("div");
 	div.classList.add("card");
 	div.innerHTML = `
