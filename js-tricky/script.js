@@ -15,5 +15,9 @@ function goodMorning(name) {
 	console.log("Good Morning", name);
 }
 
+function goodNight(name) {
+	console.log("Good Night", name);
+}
+
 goodMessage("Tasib", goodMorning);
-goodMessage("Rafi", goodMorning);
+goodMessage("Rafi", goodNight);
