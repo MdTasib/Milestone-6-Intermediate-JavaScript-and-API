@@ -57,3 +57,43 @@ Object.freeze(phone);
 delete phone.isNice;
 phone.price = 19000;
 console.log(phone); */
+
+// Loop through an object using for in, for of, object entries
+const student = {
+	name: "Tasib",
+	age: 19,
+	isGood: true,
+};
+
+// 1
+for (const propaty in student) {
+	// console.log(propaty);
+	// console.log(propaty, student[propaty]);
+}
+
+// 2
+const studentKeys = Object.keys(student);
+// console.log(studentKeys);
+for (const propaty of studentKeys) {
+	// console.log(propaty);
+	// console.log(propaty, student[propaty]);
+}
+
+// 3
+const studentEntries = Object.entries(student);
+// console.log(studentEntries);
+for (const propaty of studentEntries) {
+	// console.log(propaty[0], student[propaty[0]]);
+}
+
+// destructuring way - 1
+const destructuringStudent = Object.entries(student);
+// console.log(studentEntries);
+for (const [key, value] of destructuringStudent) {
+	// console.log(key, value);
+}
+
+// destructuring way - 2
+for (const [key, value] of Object.entries(student)) {
+	// console.log(key, value);
+}
