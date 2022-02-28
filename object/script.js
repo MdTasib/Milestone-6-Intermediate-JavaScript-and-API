@@ -93,7 +93,7 @@ for (const [key, value] of destructuringStudent) {
 	// console.log(key, value);
 }
 
-// destructuring way - 2
+// // destructuring way - 2
 for (const [key, value] of Object.entries(student)) {
 	// console.log(key, value);
 }
