@@ -8,7 +8,6 @@ function loadPlayer() {
 	fetch(url)
 		.then(response => response.json())
 		.then(data => {
-			console.log(data);
 			if (data.player == null) {
 				document.getElementById("spinner").style.display = "block";
 			} else {
@@ -19,6 +18,14 @@ function loadPlayer() {
 
 	searchInput.value = "";
 }
+
+document.getElementById("search-input").addEventListener("keyup", event => {
+	if (event.keyCode === 13) {
+		event.preventDefault();
+
+		document.getElementById("search-btn").click();
+	}
+});
 
 function displayPlayer(players) {
 	const playersContainer = document.getElementById("players");
